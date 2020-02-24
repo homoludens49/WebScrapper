@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://bootswatch.com/4/litera/bootstrap.min.css">
+    
+    
+</head>
+<body>
+    
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">Scrapper Pro</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+    
+      </nav>
+
+
+    <main class="container" id="app">
+        <div class="container">
+            <form @submit.prevent="addTerm">
+                <fieldset class="form-group row">
+                    <label for="term" >Term</label>
+                    <input v-model="term" type="text" class="form-control" name="inputName" id="term" placeholder="Enter a Search Term">
+                </fieldset>
+                <button type="submit" class="btn btn-danger">Submit</button>
+            </form>
+            <section class="mt-3">
+                <ul class="nav nav-tabs">
+                    <li @click="setActiveTerm(term)" v-for="term in terms"  class="nav-item">
+                        <a  
+                        :class="{ active : activeTerm == term}"
+                        class="nav-link" 
+                        href="#">{{term}}</a>
+                    </li>
+                  </ul>
+            <section class="row">
+                <div v-for="result in activeResults" class="card col-4">
+                    <img 
+                    v-if="result.images.length > 0"
+                    class="card-img-top" 
+                    :src="result.images[0]" 
+                    :alt="result.title">
+                    <img v-else src="https://media.giphy.com/media/12VP4rGUig1uwg/giphy.gif" :alt="result.title">
+                        <div class="card-body">
+                            <h5 class="card-title"><em>{{result.hood}}</em> {{result.title}}</h5>
+                            <p v-if="result.price" class="card-text">{{result.price}}</p>
+                            <p v-else="result.price" class="card-text">No Price Listed</p>
+                            <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p> -->
+                        </div>
+                </div>
+            </section>
+            </section>
+        </div> 
+    </main>    
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="client.js"></script>
+</body>
+</html>
