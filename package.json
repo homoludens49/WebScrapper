@@ -18,7 +18,7 @@
     "gitignore": "^0.6.0",
     "lite-server": "^2.5.4",
     "morgan": "^1.9.1",
-    "node-fetch": "^2.6.0",
+    "node-fetch": "^2.6.1",
     "nodemon": "^2.0.2",
     "vue": "^2.6.11"
   }
